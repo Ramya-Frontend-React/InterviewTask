@@ -1,0 +1,140 @@
+@import "assets/scss/variables.scss";
+
+.multi-select-container {
+  position: relative;
+  outline: none;
+
+  .multi-select {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+    width: 100%;
+    border: 1px solid #ccc;
+    background-color: $white-F9;
+    border-radius: 0px 6px 6px 0px;
+    padding: 12px;
+    box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+    height: 45px;
+    cursor: pointer;
+
+    .selected-option-wrapper {
+      display: flex;
+      flex-wrap: wrap;
+      color: #6b7280 !important;
+      gap: 5px;
+
+      .selected-option {
+        background-color: $white-F9;
+        color: #6b7280;
+        padding: 2px 5px;
+        border-radius: 2px;
+        font-size: 16px;
+        cursor: default;
+
+        .delete-tag {
+          font-size: 13px;
+          margin-left: 5px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+
+  .multi-select-option {
+    border: 1px solid #ccc;
+    border-radius: 2px;
+    margin-top: 5px;
+    cursor: default;
+    max-height: 200px;
+    background-color: white;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+    position: absolute;
+    width: 100%;
+    z-index: 2;
+
+    .no-option {
+      text-align: center;
+      padding: 5px 10px;
+      margin: 10px 0px;
+    }
+
+    .select-list {
+      padding: 5px 10px;
+
+      &:hover {
+        background-color: #e8e8e8;
+      }
+    }
+  }
+}
+
+.fa-chevron-down {
+  cursor: pointer;
+  color: #b3aeae !important;
+}
+
+.filterIcon {
+  padding-top: 2px;
+}
+
+.selectsort {
+  margin-top: 3px;
+}
+
+.selectBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  width: 100%;
+  border: 1px solid $grey-D1;
+  background-color: $white;
+  border-radius: 6px;
+  padding: 10px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+
+  .selected-option-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    color: $grey-6B;
+    gap: 5px;
+    margin-left: 8px;
+    font-size: 16px;
+
+    .selected-option {
+      background-color: $white-F9;
+      color: black;
+      padding: 2px 5px;
+      border-radius: 2px;
+      font-size: 13px;
+      cursor: default;
+
+      .delete-tag {
+        font-size: 13px;
+        margin-left: 5px;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.border-selectbox {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+  border: 1px solid #ccc;
+  background-color: $white;
+  border-radius: 6px 6px 6px 6px;
+  padding: 12px;
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+}
+.selectbox-alignment {
+  position: relative;
+  outline: none;
+  right: 24px;
+}
