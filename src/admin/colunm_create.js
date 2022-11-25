@@ -66,7 +66,7 @@ const [formValue,setformValue]=useState([""]);
         <td><botton  className="btn btn-warning" onClick={onSubmit}   name="submit" >Add</botton></td>   
         </tr>
         
-        <p>Note:Please double click add Botton </p>
+        <p>Note:Please double click add Button at first  </p>
       </tbody>
     </table>
   </div>
