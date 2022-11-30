@@ -1,31 +1,42 @@
 import React from 'react'
 import { useState } from 'react';
-function Colunm_create(props) {
+import { useNavigate } from "react-router-dom";
 
-const [formValue,setformValue]=useState([""]);
+function Colunm_create() {
+ 
+  const navigate = useNavigate()
+const [formValue,setformValue]=useState({name:"",type:"",number:"",date:""});
+
+const  handleChange =  (e) => {
+  const { name, value } = e.target;
+  setformValue({ ...formValue, [name]: value});
+
+  }
 
 
- const [name,setName]=useState([""]);
- const [type,setType]=useState([""]);
- const [number,SetNumber]=useState([""]);
- const [date,setDate]=useState([""]);
- function onSubmit() {
-  let addValue = [...formValue];
-  addValue.push({
-    name: name,
-    type:type,
-    number:number,
-    date:date
-  });
-  setformValue(addValue);
-  console.log(formValue)
-  props.fun(formValue)
+const onSubmit=()=>{
+console.log(formValue, "async")
+// let data=[]
+// data.push(formValue)
+// localStorage.setItem("array",JSON.stringify([...data]))
+if (JSON.parse(localStorage.getItem("array")) === null) {
+  localStorage.setItem("array", JSON.stringify([formValue]));
+} else {
+  let data = JSON.parse(localStorage.getItem("array"));
+  data.push(formValue);
+  localStorage.setItem("array", JSON.stringify(data));
+}
+
+alert("Submited")
+// navigate("/tableentry")
 }
 
 
 
 
+
   return (
+    
     <div className="row">
     <div className="col-lg-2"></div>
       <div className="col-lg-10">
@@ -34,6 +45,7 @@ const [formValue,setformValue]=useState([""]);
 
 
 <div class="table-responsive">
+     
     <table class="table table-bordered">
       <thead>
         <tr>
@@ -49,26 +61,59 @@ const [formValue,setformValue]=useState([""]);
       <tbody>
         <tr>
           <td>1</td>
-          <td> <input type="name" className="form-control" id="name" placeholder="Enter Name" name="name" 
-           onChange={(e) => setName(e.target.value)} /></td>
+          <td>
+             <input
+           type="name" 
+           className="form-control"
+           id="name" 
+           placeholder="Enter Name"
+            value={formValue.name} 
+            name="name"
+             onChange={handleChange} 
+             required/>
+             </td>
           <td> 
-        <select name="select" onChange={(e) => setType(e.target.value)} className="form-control" >
-        <option value="Select Option" >Select Option</option>
-        <option value="number"   >Number</option>
-        <option value="date">Date</option>
-        <option value="multiselect">Multiselect</option>
+        <select name="select" 
+               onChange={handleChange} 
+               value={formValue.type}
+               
+             className="form-control" 
+              >
+        <option>Select Option</option>
+        <option 
+        >Number</option>
+        <option
+        >Date</option>
+        <option 
+        >Multiselect</option>
+        
         </select>
         </td>
 
       
-        <td> <input type="number"  onChange={(e) => SetNumber(e.target.value)}  className="form-control" id="number" placeholder="Enter Number" name="number" /></td>   
-        <td><input type="date" onChange={(e) => setDate(e.target.value)} className="form-control" id="name" placeholder="Enter Name" name="date" /></td>
-        <td><botton  className="btn btn-warning" onClick={onSubmit}   name="submit" >Add</botton></td>   
+        <td> <input 
+        type="number" 
+         onChange={handleChange}   
+         value={formValue.number} 
+         className="form-control" 
+        
+          placeholder="Enter Number" 
+          name="number"
+          required/></td>   
+
+        <td><input type="date"
+        onChange={handleChange} 
+         value={formValue.date}
+          className="form-control"
+        
+            placeholder="Enter date"
+             name="date" required/></td>
+        <td><button  className="btn btn-warning" onClick={onSubmit}   name="submit" >Add</button></td>   
         </tr>
         
-        <p>Note:Please double click add Button at first  </p>
       </tbody>
     </table>
+       
   </div>
  
 </div>

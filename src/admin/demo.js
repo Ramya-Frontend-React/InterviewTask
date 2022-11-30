@@ -1,4 +1,4 @@
-Rihhana, [24-11-2022 13:48]
+
 import React from "react";
 import { useState } from "react";
 
@@ -151,7 +151,7 @@ export default function ColumnCreation(props) {
                     <ul class="dropdown-menu">
                       <li>
 
-Rihhana, [24-11-2022 13:48]
+
 <a class="dropdown-item" href="#">
                           Date Of Birth :
                           <input
