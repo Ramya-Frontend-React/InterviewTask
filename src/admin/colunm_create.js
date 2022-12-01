@@ -1,24 +1,19 @@
 import React from 'react'
 import { useState } from 'react';
-import { useNavigate } from "react-router-dom";
+
+
 
 function Colunm_create() {
- 
-  const navigate = useNavigate()
 const [formValue,setformValue]=useState({name:"",type:"",number:"",date:""});
 
 const  handleChange =  (e) => {
   const { name, value } = e.target;
   setformValue({ ...formValue, [name]: value});
-
-  }
-
+}
 
 const onSubmit=()=>{
 console.log(formValue, "async")
-// let data=[]
-// data.push(formValue)
-// localStorage.setItem("array",JSON.stringify([...data]))
+
 if (JSON.parse(localStorage.getItem("array")) === null) {
   localStorage.setItem("array", JSON.stringify([formValue]));
 } else {
